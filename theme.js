@@ -5,9 +5,9 @@ export const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#8A2BE2',    // Purple
-    secondary: '#FF69B4',  // Pink
-    background: '#E8ECF4', // Light pastel background
+    primary: '#563CCC',    // Purple
+    secondary: '#f06292',  // Pink
+    background: '#d0e0f0', // Light pastel background
     onPrimary: '#FFFFFF',
   },
   roundness: 20,

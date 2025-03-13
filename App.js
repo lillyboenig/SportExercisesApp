@@ -35,7 +35,7 @@ export default function App() {
         <Summary workouts={workouts} />
 
         {/* Button to open/close Past Workouts modal */}
-        <Button mode="contained" onPress={toggleModal}>
+        <Button mode="contained" onPress={toggleModal} style={styles.showPastButton}>
           Show Past Workouts
         </Button>
 
@@ -56,10 +56,13 @@ const styles = StyleSheet.create({
       backgroundColor: theme.colors.background,
       paddingHorizontal: 10,
       paddingTop: 10,
+      borderRadius: 20,
     },
     showPastButton: {
       marginTop: 10,
       alignSelf: 'center',
       width: '60%',
+      paddingHorizontal: 20,
+      marginHorizontal: 10,
     },
 });
