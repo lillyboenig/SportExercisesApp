@@ -21,7 +21,7 @@ export default function Header({ workouts }) {
       {/* Centered content */}
       <View style={styles.centerContainer}>
         <Avatar.Icon size={60} icon="account" style={styles.avatar} />
-        <Text style={styles.greeting}>Hello, Lucas</Text>
+        <Text style={styles.greeting}>Hello, Lilly</Text>
       </View>
 
       <View style={styles.infoContainer}>
