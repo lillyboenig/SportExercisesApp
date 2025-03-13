@@ -11,13 +11,17 @@ export default function Header({ workouts }) {
 
   return (
     <View style={styles.headerContainer}>
-      <Avatar.Icon size={60} icon="account" style={styles.avatar} />
+      <View style={styles.headerTopRow}>
+        <Avatar.Icon size={60} icon="account" style={styles.avatar} />
+        <IconButton icon="cog" onPress={() => {}} color="#fff" />
+      </View>
+
       <Text style={styles.greeting}>Hello, Lucas</Text>
+
       <View style={styles.infoContainer}>
-        <Text style={styles.infoText}>Distance in total: {totalDistance} km</Text>
+        <Text style={styles.infoText}>Distance in total: {totalDistance.toFixed(1)} km</Text>
         <Text style={styles.infoText}>Workouts completed: {workoutCount}</Text>
       </View>
-      <IconButton icon="cog" onPress={() => {}} color="#fff" />
     </View>
   );
 }
@@ -26,22 +30,28 @@ const styles = StyleSheet.create({
   headerContainer: {
     backgroundColor: '#8A2BE2',
     padding: 20,
-    alignItems: 'center',
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
     marginBottom: 10,
+  },
+  headerTopRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   avatar: {
     backgroundColor: '#FF69B4',
   },
   greeting: {
-    fontSize: 20,
+    fontSize: 22,
     color: '#fff',
     marginTop: 10,
     fontWeight: 'bold',
+    alignSelf: 'center',
   },
   infoContainer: {
     marginTop: 10,
+    alignItems: 'center',
   },
   infoText: {
     color: '#fff',

@@ -1,38 +1,35 @@
 // components/Summary.js
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { Card } from 'react-native-paper';
 
 export default function Summary({ workouts }) {
-  // Calculate total distance by sport
   const totalBySport = workouts.reduce((acc, workout) => {
     const dist = parseFloat(workout.distance) || 0;
-    if (!acc[workout.sport]) {
-      acc[workout.sport] = 0;
-    }
-    acc[workout.sport] += dist;
+    acc[workout.sport] = (acc[workout.sport] || 0) + dist;
     return acc;
   }, {});
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Distance By Sport</Text>
-      {Object.keys(totalBySport).map((sport) => (
-        <Text key={sport} style={styles.sportText}>
-          {sport}: {totalBySport[sport]} km
-        </Text>
-      ))}
-    </View>
+    <Card style={styles.card}>
+      <Card.Content>
+        <Text style={styles.title}>Distance By Sport</Text>
+        {Object.keys(totalBySport).map((sport) => (
+          <Text key={sport} style={styles.sportText}>
+            {sport}: {totalBySport[sport].toFixed(1)} km
+          </Text>
+        ))}
+      </Card.Content>
+    </Card>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
+  card: {
     marginHorizontal: 10,
     marginBottom: 10,
-    padding: 15,
-    borderRadius: 10,
-    elevation: 2,
+    borderRadius: 20,
+    elevation: 3,
   },
   title: {
     fontSize: 18,

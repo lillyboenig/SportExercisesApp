@@ -51,9 +51,15 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#E8ECF4', // Adjust the background to match your design
-    padding: 10,
-  },
+    container: {
+      flex: 1,
+      backgroundColor: theme.colors.background,
+      paddingHorizontal: 10,
+      paddingTop: 10,
+    },
+    showPastButton: {
+      marginTop: 10,
+      alignSelf: 'center',
+      width: '60%',
+    },
 });

@@ -14,12 +14,12 @@ export default function WorkoutListModal({ visible, onClose, workouts }) {
         <Text style={styles.title}>Past Workouts</Text>
         <ScrollView style={styles.scrollArea}>
           {workouts.map((workout, index) => (
-            <Card key={index} style={styles.card}>
-              <Card.Title title={workout.sport} />
+            <Card key={index} style={styles.workoutBubble}>
               <Card.Content>
-                <Text>Distance: {workout.distance} km</Text>
-                <Text>Duration: {workout.duration} min</Text>
-                <Text>Date: {workout.date}</Text>
+                <Text style={styles.sportText}>{workout.sport}</Text>
+                <Text style={styles.detailText}>{workout.distance} km</Text>
+                <Text style={styles.detailText}>{workout.duration} min</Text>
+                <Text style={styles.detailText}>{workout.date}</Text>
               </Card.Content>
             </Card>
           ))}
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   modalContainer: {
     backgroundColor: 'white',
     margin: 20,
-    borderRadius: 10,
+    borderRadius: 20,
     padding: 15,
   },
   title: {
@@ -49,8 +49,19 @@ const styles = StyleSheet.create({
     maxHeight: 400,
     marginBottom: 10,
   },
-  card: {
+  workoutBubble: {
     marginBottom: 10,
+    borderRadius: 50, // Large radius for an elliptical shape
+    backgroundColor: '#DAB3FF', // Light purple background
+    elevation: 2,
+  },
+  sportText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  detailText: {
+    fontSize: 14,
+    marginTop: 2,
   },
   closeButton: {
     alignSelf: 'center',
