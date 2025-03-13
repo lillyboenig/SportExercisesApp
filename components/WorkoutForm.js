@@ -17,6 +17,9 @@ export default function WorkoutForm({ onAddWorkout }) {
   const [date, setDate] = useState(undefined);
   const [open, setOpen] = useState(false);
 
+  const [distanceFocused, setDistanceFocused] = useState(false);
+  const [durationFocused, setDurationFocused] = useState(false);
+
   const onConfirm = (params) => {
     setOpen(false);
     if (params.date) {
@@ -82,10 +85,12 @@ export default function WorkoutForm({ onAddWorkout }) {
         <View style={styles.inputRow}>
           <TextInput
             mode="outlined"
-            label="Distance (km)"
+            label={!distanceFocused ? "Distance (km)" : ""}
             keyboardType="numeric"
             value={distance}
             onChangeText={setDistance}
+            onFocus={() => setDistanceFocused(true)}
+            onBlur={() => setDistanceFocused(false)}
             style={[styles.input, { marginRight: 5 }]}
             theme={{
                 colors: {
@@ -98,10 +103,12 @@ export default function WorkoutForm({ onAddWorkout }) {
           />
           <TextInput
             mode="outlined"
-            label="Duration (min)"
+            label={!durationFocused ? "Duration (min)" : ""}
             keyboardType="numeric"
             value={duration}
             onChangeText={setDuration}
+            onFocus={() => setDurationFocused(true)}
+            onBlur={() => setDurationFocused(false)}
             style={[styles.input, { marginLeft: 5 }]}
             theme={{
                 colors: {
